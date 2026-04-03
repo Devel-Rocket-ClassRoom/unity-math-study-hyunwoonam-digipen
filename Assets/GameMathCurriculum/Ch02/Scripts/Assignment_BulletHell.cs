@@ -39,6 +39,9 @@ public class Assignment_BulletHell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI debugUI;
     [SerializeField] private float fireTimer = 0f;
 
+    private float currentRotationOffset;
+    private float angleSpacing;
+
     private void Start()
     {
         fireTimer = 0f;
@@ -46,6 +49,10 @@ public class Assignment_BulletHell : MonoBehaviour
 
     private void Update()
     {
+        angleSpacing = 360f / bulletCount;
+        float speedInDegrees = spiralTurnSpeed * Mathf.Rad2Deg;
+        currentRotationOffset = (Time.time * speedInDegrees) % 360f;
+
         fireTimer -= Time.deltaTime;
 
         if (fireTimer <= 0f)
@@ -87,13 +94,22 @@ public class Assignment_BulletHell : MonoBehaviour
     private Vector3 CalculateCircleDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        float angleDegree = (index * angleSpacing);
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
+
+        Vector3 direction = new Vector3(Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+
+        return direction;
     }
 
     private Vector3 CalculateSpiralDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        float angleDegree = (index * angleSpacing + currentRotationOffset);
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
+
+        Vector3 direction = new Vector3(Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+        return direction;
     }
 
     private Vector3 CalculateFanDirection(int index, int total)
