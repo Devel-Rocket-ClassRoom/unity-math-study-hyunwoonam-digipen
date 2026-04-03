@@ -779,6 +779,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1355149896925676869, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355149896925676869, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      propertyPath: sideThreshold
+      value: 0.201
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355149896925676869, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: nearbyEnemies.Array.data[0].transform
       value: 
       objectReference: {fileID: 1436931447}
@@ -798,6 +806,10 @@ PrefabInstance:
       propertyPath: uiInfoText
       value: 
       objectReference: {fileID: 1738976620}
+    - target: {fileID: 4225366778589759404, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4225366778589759404, guid: 3bed9fa5c1a730c40888ceccbe3829ef, type: 3}
       propertyPath: uiInfoText
       value: 
