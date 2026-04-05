@@ -50,8 +50,7 @@ public class Assignment_BulletHell : MonoBehaviour
     private void Update()
     {
         angleSpacing = 360f / bulletCount;
-        float speedInDegrees = spiralTurnSpeed * Mathf.Rad2Deg;
-        currentRotationOffset = (Time.time * speedInDegrees) % 360f;
+        currentRotationOffset = (Time.time * spiralTurnSpeed * 100) % 360f;
 
         fireTimer -= Time.deltaTime;
 
@@ -115,7 +114,15 @@ public class Assignment_BulletHell : MonoBehaviour
     private Vector3 CalculateFanDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        float halfFan = fanAngle / 2f;
+        float spacing = (total > 1) ? fanAngle / (total - 1) : 0f;
+
+        float angleDegree = 90f - halfFan + index * spacing;
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
+
+        Vector3 direction = new Vector3(Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+
+        return direction;
     }
     
     private void UpdateDebugUI()
