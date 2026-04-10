@@ -10,6 +10,8 @@ TagManager:
   - Selectable
   - Unit
   - Ground
+  - Cube
+  - DropZone
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Cube
+  - DropZone
   - 
   - 
   - 
